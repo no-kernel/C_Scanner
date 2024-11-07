@@ -33,14 +33,12 @@ class Token:
 # Scanner function
 def scanner(code):
     tokens = []
-
     # Regular expressions for C tokens
     token_specification = [
-        (TokenType.COMMENT, r'//.*?$|/\*.*?\*/', re.DOTALL | re.MULTILINE),  # Comment must come first
+        (TokenType.COMMENT, r'//.*?$|/\*.*?\*/', re.DOTALL | re.MULTILINE),  
         (TokenType.KEYWORD, r'\b(?:' + '|'.join(keywords) + r')\b'),
         (TokenType.IDENTIFIER, r'[a-zA-Z_]\w*'),
         (TokenType.OPERATOR, r'[+\-*/%=&|!<>]+'),
-        # Enhanced regex to capture integers, floats, and scientific notation
         (TokenType.NUMERIC_CONSTANT, r'\b\d+(\.\d+)?([eE][+-]?\d+)?\b'),
         (TokenType.CHARACTER_CONSTANT, r"\'(\\.|[^\\'])\'"),
         (TokenType.SPECIAL_CHARACTER, r'[.,;()\[\]{}]'),
