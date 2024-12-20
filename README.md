@@ -1,2 +1,2 @@
-# C_Scanner
-Simple C code Scanner in Python
+# C Scanner 
+# Top Down parser for simple grammar.
